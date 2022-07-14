@@ -8,11 +8,11 @@ const getAllProducts = async (): Promise<IProduct[]> => {
   return products as IProduct[];
 };
 
-const createProduct = async (product: Omit<IProduct, 'orderId'>): Promise<ResultSetHeader> => {
+const createProduct = async (product: IProduct): Promise<ResultSetHeader> => {
   const [result] = await connection
     .execute<ResultSetHeader>(
-    'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
-    [product.name, product.amount],
+    'INSERT INTO Trybesmith.Products (name, amount, orderId) VALUES (?, ?, ?)',
+    [product.name, product.amount, product.orderId || null],
   );
 
   return result;

@@ -14,4 +14,7 @@ const userCreateModel = async (user: IUsers): Promise<ResultSetHeader> => {
   );
   return addUser;
 };
+
+// const user
+
 export default userCreateModel; 

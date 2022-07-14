@@ -5,6 +5,7 @@ const validateProducts = async () => {
   const products = Joi.object().keys({
     name: Joi.string().min(3).required(),
     amount: Joi.string().min(3).required(),
+    orderId: Joi.number().allow(null),
   });
 
   return products;

@@ -3,7 +3,7 @@ import IProduct from '../interfaces/product.interface';
 
 const getAllProducts = (): Promise<IProduct[]> => modelsProduct.getAllProducts();
 
-const createProduct = async (product: Omit<IProduct, 'orderId'>): Promise<IProduct> => {
+const createProduct = async (product: IProduct): Promise<IProduct> => {
   const { insertId } = await modelsProduct.createProduct(product);
   
   const addProduct = product;
